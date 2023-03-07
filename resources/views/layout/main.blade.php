@@ -10,10 +10,10 @@
 <body class="bg-gray-200 p-4">
   <div class="lg:w-2/4 mx-auto py-8 px-6 bg-white rounded-xl">
     <h1 class="font-bold text-5xl text-center mb-8">ToDo Laravel</h1>
-    @include('form')
+    @include('components.form')
     <hr>
     <div class="mt-2">
-      @include('item')
+      @include('components.item')
     </div>
   </div>
 </body>
