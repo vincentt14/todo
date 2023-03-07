@@ -37,4 +37,8 @@ class TodoController extends Controller
         $todo->delete();
         return redirect('/');
     }
+
+    // public function edit(){
+    //     return view('/edit');
+    // }
 }
