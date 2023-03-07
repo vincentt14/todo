@@ -15,3 +15,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [TodoController::class, 'index']);
+Route::post('/', [TodoController::class, 'store']);
+Route::patch('/{todo}', [TodoController::class, 'update']);
