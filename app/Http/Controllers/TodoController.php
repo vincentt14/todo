@@ -28,7 +28,7 @@ class TodoController extends Controller
 
     public function update(Todo $todo)
     {
-        $todo->update(['isDone' => true]);
+        $todo->update(['isDone' => !$todo->isDone]);
         return redirect('/');
     }
 }

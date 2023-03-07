@@ -1,16 +1,24 @@
 @foreach ($todos as $todo)
-  <div class="flex items-center border-b border-gray-300 py-4 px-3">
+  <div @class([
+      $todo->isDone
+          ? 'bg-green-200 py-4 flex items-center border-b border-gray-300 py-4 px-3'
+          : 'py-4 flex items-center border-b border-gray-300 py-4 px-3',
+  ])>
     <div class="flex-1 pr-8">
       <h3 class="text-lg font-semibold">{{ $todo->title }}</h3>
       <p class="text-gray-500">{{ $todo->description }}</p>
     </div>
     <div class="flex space-x-3">
-      <button class="rounded-xl bg-green-500 py-2 px-2 text-white">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-          class="h-6 w-6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-        </svg>
-      </button>
+      <form method="post" action="/{{ $todo->id }}">
+        @csrf
+        @method('patch')
+        <button class="rounded-xl bg-green-500 py-2 px-2 text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="h-6 w-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+          </svg>
+        </button>
+      </form>
       <button class="rounded-xl bg-red-500 py-2 px-2 text-white">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
           stroke="currentColor" class="h-6 w-6">
